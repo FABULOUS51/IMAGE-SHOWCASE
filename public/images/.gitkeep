@@ -1,0 +1,2 @@
+This file ensures that the images folder is tracked by Git even when empty.
+You can delete this file once you add your images.
