@@ -58,7 +58,7 @@ export default function Hero() {
                         <img src="/images/E30.jpg" />
                         <div className="image-overlay">
                             <h3>LATEST DROP</h3>
-                            <p>CERAMIC PLATES & POSTERS</p>
+                            <p>POSTERS</p>
                         </div>
                     </div>
                 </div>
