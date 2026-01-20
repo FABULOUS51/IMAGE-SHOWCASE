@@ -8,7 +8,7 @@ import Modal from './Modal'
 // Example: src: '/images/my-poster.jpg'
 
 const galleryItems = [
-    { id: 1, title: 'Neon Dreams', category: 'Poster Design', src: '/images/KRATOS.jpg' },
+    { id: 1, title: 'God of War', category: 'Poster Design', src: '/images/KRATOS.jpg' },
     { id: 2, title: 'Urban Glitch', category: 'Photo Manipulation', src: 'https://images.unsplash.com/photo-1515462277126-2dd0c162007a?auto=format&fit=crop&w=800&q=80' },
     { id: 3, title: 'Cyber Samurai', category: 'Digital Art', src: 'https://images.unsplash.com/photo-1535905557558-afc4877a26fc?auto=format&fit=crop&w=800&q=80' },
     { id: 4, title: 'Abstract Flow', category: 'Texture', src: 'https://images.unsplash.com/photo-1574169208507-84376144848b?auto=format&fit=crop&w=800&q=80' },
