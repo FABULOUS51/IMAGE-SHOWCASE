@@ -9,7 +9,7 @@ import Modal from './Modal'
 
 const galleryItems = [
     { id: 1, title: 'God of War', category: 'Poster Design', src: '/images/KRATOS.jpg' },
-    { id: 2, title: 'Urban Glitch', category: 'Poster Design', src: '/images/E30.jpg' },
+    { id: 2, title: 'E30', category: 'Poster Design', src: '/images/E30.jpg' },
     { id: 3, title: 'Cyber Samurai', category: 'Digital Art', src: 'https://images.unsplash.com/photo-1535905557558-afc4877a26fc?auto=format&fit=crop&w=800&q=80' },
     { id: 4, title: 'Abstract Flow', category: 'Texture', src: 'https://images.unsplash.com/photo-1574169208507-84376144848b?auto=format&fit=crop&w=800&q=80' },
     { id: 5, title: 'Retrowave', category: 'Poster Design', src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80' },
