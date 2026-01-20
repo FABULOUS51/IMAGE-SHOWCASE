@@ -55,7 +55,7 @@ export default function Hero() {
 
                     {/* Cell 5: Hero Image */}
                     <div className="cell cell-image">
-                        <img src="public/images/KRATOS.jpg" />
+                        <img src="/images/KRATOS.jpg" />
                         <div className="image-overlay">
                             <h3>LATEST DROP</h3>
                             <p>CERAMIC PLATES & POSTERS</p>
