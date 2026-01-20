@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Material Design 3 / Pixel Theme Tokens */
+  --md-sys-color-background: #0e0e0e;
+  --md-sys-color-on-background: #e6e1e5;
+  --md-sys-color-surface: #1e1e1e;
+  --md-sys-color-surface-container: #2b2b2b;
+  --md-sys-color-surface-container-high: #363636;
+
+  /* Accents - Pastel/Neon Mix */
+  --md-sys-color-primary: #d0bcff;
+  /* Soft Purple */
+  --md-sys-color-on-primary: #381e72;
+  --md-sys-color-primary-container: #4f378b;
+  --md-sys-color-on-primary-container: #eaddff;
+
+  --md-sys-color-secondary: #ccc2dc;
+  --md-sys-color-tertiary: #efb8c8;
+  /* Pinkish */
+
+  /* Shapes */
+  --shape-corner-extra-large: 28px;
+  /* Pill / FAB */
+  --shape-corner-large: 16px;
+  /* Cards */
+  --shape-corner-medium: 12px;
+
+  /* Fonts */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  /* Animation */
+  --motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --motion-duration-medium: 0.4s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar - Slim & Modern */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--md-sys-color-surface-container-high);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--md-sys-color-primary);
+}
+
+/* Utilities */
+.surface-card {
+  background: var(--md-sys-color-surface);
+  border-radius: var(--shape-corner-large);
+  transition: background-color var(--motion-duration-medium) var(--motion-easing-standard);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-padding {
+  padding: 8rem 0;
+}
+
+/* Typography Defaults */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  /* MD3 uses lighter weights mostly */
+  letter-spacing: -0.02em;
+  color: var(--md-sys-color-on-background);
+}
+
+h1 {
+  font-size: clamp(3.5rem, 6vw, 7rem);
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--motion-duration-medium) var(--motion-easing-standard);
+}
+
+/* Button / Chip Utilities */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  font-family: var(--font-body);
+  font-weight: 500;
+  padding: 0 2rem;
+  height: 56px;
+  border-radius: var(--shape-corner-extra-large);
+  transition: all 0.2s var(--motion-easing-standard);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 4px 12px rgba(208, 188, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s var(--motion-easing-standard) forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
