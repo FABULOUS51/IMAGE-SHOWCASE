@@ -55,7 +55,7 @@ export default function Hero() {
 
                     {/* Cell 5: Hero Image */}
                     <div className="cell cell-image">
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" alt="Hero Featured Work" />
+                        <img src="public/images/KRATOS.jpg" />
                         <div className="image-overlay">
                             <h3>LATEST DROP</h3>
                             <p>CERAMIC PLATES & POSTERS</p>
