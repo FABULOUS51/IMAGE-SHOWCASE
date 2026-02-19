@@ -1,123 +1,55 @@
-import { useState } from 'react'
-import Modal from './Modal'
+import CircularGallery from './CircularGallery';
 
-// Mock Data
-// HOW TO ADD YOUR OWN IMAGES:
-// 1. Place your image files in the "public/images" folder.
-// 2. Change the 'src' below to "/images/your-file-name.jpg"
-// Example: src: '/images/my-poster.jpg'
-
-const galleryItems = [
-    { id: 1, title: 'Neon Dreams', category: 'Poster Design', src: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=800&q=80' },
-    { id: 2, title: 'Urban Glitch', category: 'Photo Manipulation', src: 'https://images.unsplash.com/photo-1515462277126-2dd0c162007a?auto=format&fit=crop&w=800&q=80' },
-    { id: 3, title: 'Cyber Samurai', category: 'Digital Art', src: 'https://images.unsplash.com/photo-1535905557558-afc4877a26fc?auto=format&fit=crop&w=800&q=80' },
-    { id: 4, title: 'Abstract Flow', category: 'Texture', src: 'https://images.unsplash.com/photo-1574169208507-84376144848b?auto=format&fit=crop&w=800&q=80' },
-    { id: 5, title: 'Retrowave', category: 'Poster Design', src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80' },
-    { id: 6, title: 'Dark Matter', category: 'Compositing', src: 'https://images.unsplash.com/photo-1614850523296-63fac9b075b9?auto=format&fit=crop&w=800&q=80' },
-]
+// Your gallery items — replace src with '/images/your-photo.jpg' to use your own images
+const items = [
+    { image: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=800&q=80', text: 'Neon Dreams' },
+    { image: 'https://images.unsplash.com/photo-1515462277126-2dd0c162007a?auto=format&fit=crop&w=800&q=80', text: 'Urban Glitch' },
+    { image: 'https://images.unsplash.com/photo-1535905557558-afc4877a26fc?auto=format&fit=crop&w=800&q=80', text: 'Cyber Samurai' },
+    { image: 'https://images.unsplash.com/photo-1574169208507-84376144848b?auto=format&fit=crop&w=800&q=80', text: 'Abstract Flow' },
+    { image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80', text: 'Retrowave' },
+    { image: 'https://images.unsplash.com/photo-1614850523296-63fac9b075b9?auto=format&fit=crop&w=800&q=80', text: 'Dark Matter' },
+];
 
 export default function Gallery() {
-    const [selectedImage, setSelectedImage] = useState(null)
-
     return (
-        <section id="gallery" className="section-padding">
-            <div className="container">
-                <div className="section-header">
-                    <h2 className="fade-in-up">Selected Work</h2>
-                </div>
-
-                <div className="gallery-grid">
-                    {galleryItems.map((item, index) => (
-                        <div
-                            key={item.id}
-                            className="gallery-card"
-                            onClick={() => setSelectedImage(item)}
-                            style={{ animationDelay: `${index * 0.1}s` }}
-                        >
-                            <div className="image-wrapper">
-                                <img src={item.src} alt={item.title} loading="lazy" />
-                            </div>
-                            <div className="card-content">
-                                <h4>{item.title}</h4>
-                                <span className="chip">{item.category}</span>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+        <section id="gallery">
+            <div className="gallery-header">
+                <h2>SELECTED WORK</h2>
+                <p>Scroll or drag to explore</p>
+            </div>
+            <div style={{ height: '600px', position: 'relative' }}>
+                <CircularGallery
+                    items={items}
+                    bend={1}
+                    textColor="#ccff00"
+                    borderRadius={0.05}
+                    scrollSpeed={2}
+                    scrollEase={0.05}
+                />
             </div>
 
-            <Modal image={selectedImage} onClose={() => setSelectedImage(null)} />
-
             <style>{`
-        .section-header {
-            margin-bottom: 4rem;
-            text-align: center;
+        #gallery {
+          padding: 6rem 0 0;
         }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2rem;
+        .gallery-header {
+          text-align: center;
+          padding: 0 1.5rem 3rem;
         }
-
-        .gallery-card {
-            background: var(--md-sys-color-surface-container);
-            border-radius: var(--shape-corner-large);
-            overflow: hidden;
-            cursor: pointer;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-            transition: transform 0.2s, background-color 0.2s;
+        .gallery-header h2 {
+          font-size: clamp(2rem, 5vw, 4rem);
+          font-family: 'Oswald', sans-serif;
+          color: #ffffff;
+          letter-spacing: -1px;
         }
-        
-        .gallery-card:hover {
-            transform: translateY(-5px);
-            background: var(--md-sys-color-surface-container-high);
+        .gallery-header p {
+          color: #888;
+          font-size: 0.9rem;
+          margin-top: 0.5rem;
+          text-transform: uppercase;
+          letter-spacing: 2px;
         }
-
-        .image-wrapper {
-            position: relative;
-            padding-bottom: 75%; /* 4:3 cards */
-            overflow: hidden;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .image-wrapper img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .card-content {
-            padding: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .card-content h4 {
-            font-size: 1.25rem;
-            margin: 0;
-        }
-        
-        .chip {
-            font-size: 0.75rem;
-            background: rgba(255,255,255,0.1);
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-            color: var(--md-sys-color-secondary);
-            font-weight: 500;
-        }
-
       `}</style>
         </section>
-    )
+    );
 }

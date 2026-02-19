@@ -1,272 +1,229 @@
 export default function Hero() {
     return (
         <section className="hero-section">
-            <div className="container">
-                <div className="bento-grid">
-                    {/* Cell 1: Intro / Details */}
-                    <div className="cell cell-intro glass-panel">
-                        <div className="meta-row">
-                            <span>EST — 2026</span>
-                            <span>BASED IN CYBERSPACE</span>
-                        </div>
-                        <div className="mission-statement">
-                            <p>
-                                Visuals that defy logic. <br />
-                                Crafting digital experiences for the future.
-                            </p>
-                            <div className="scribble-icon">
-                                <svg width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <path d="M10,50 Q30,10 50,50 T90,50" />
-                                    <path d="M10,30 L90,70" opacity="0.5" />
-                                </svg>
-                            </div>
-                        </div>
+            {/* Background Spotlight */}
+            <div className="spotlight"></div>
+
+            <div className="container hero-content">
+                <div className="main-title-wrapper">
+                    <h1 className="hero-title">
+                        <span className="line">VISUAL</span>
+                        <span className="line text-primary">ETHICS</span>
+                    </h1>
+                </div>
+
+                <div className="subtitle-row">
+                    <p className="serif-subtitle">In the Dawn of Digital Revolution</p>
+                </div>
+
+                <div className="hero-footer">
+                    <div className="barcode-group">
+                        <div className="barcode"></div>
+                        <span>90028</span>
                     </div>
 
-                    {/* Cell 2: Tagline / Menu */}
-                    <div className="cell cell-heading glass-panel">
-                        <div className="top-actions">
-                            <button className="icon-btn">Cart (0)</button>
-                            <button className="icon-btn">Menu =</button>
-                        </div>
-                        <h2 className="tagline">
-                            THE FUSION <br />
-                            OF IMAGINATION
-                        </h2>
+                    <div className="tech-badges">
+                        <span className="badge">VISUAL ETHICS INC.<br /> 1300 CYBER STREET</span>
+                        <span className="badge pill">GUARANTEED<br />GENUINE</span>
                     </div>
 
-                    {/* Cell 3: Brand Name */}
-                    <div className="cell cell-brand">
-                        <h1 className="brand-name">
-                            FREDDY<span className="reg-mark">©</span>
-                        </h1>
-                        <a href="#gallery" className="shop-link">( VIEW WORK ) <span>&rarr;</span></a>
-                    </div>
-
-                    {/* Cell 4: Abstract Graphic */}
-                    <div className="cell cell-graphic glass-panel">
-                        <div className="shapes-container">
-                            <div className="shape shape-1"></div>
-                            <div className="shape shape-2"></div>
-                            <div className="shape shape-3"></div>
-                        </div>
-                        <span className="graphic-id">(259)</span>
-                    </div>
-
-                    {/* Cell 5: Hero Image */}
-                    <div className="cell cell-image">
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" alt="Hero Featured Work" />
-                        <div className="image-overlay">
-                            <h3>LATEST DROP</h3>
-                            <p>CERAMIC PLATES & POSTERS</p>
+                    <div className="news-sticker">
+                        <div className="sticker-content">
+                            <h4>LATEST DROP: NEON DREAMS AND UDIO</h4>
+                            <p>7.1.2026 News</p>
                         </div>
                     </div>
                 </div>
+
+                <a href="#contact" className="cta-skew">
+                    <span>GET IN TOUCH</span>
+                </a>
+
             </div>
 
             <style>{`
         .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 6rem 0 2rem; /* Account for fixed navbar */
+          position: relative;
+          height: 100vh;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          background: #050505;
+          overflow: hidden;
+        }
+        
+        /* Cinematic Spotlight Background */
+        .spotlight {
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80vw;
+            height: 80vh;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.15) 0%, transparent 60%);
+            filter: blur(60px);
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.8;
+            animation: pulse-light 8s infinite alternate;
+        }
+        
+        @keyframes pulse-light {
+            from { opacity: 0.6; transform: translateX(-50%) scale(1); }
+            to { opacity: 0.9; transform: translateX(-50%) scale(1.1); }
         }
 
-        .bento-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            grid-template-rows: auto auto 300px;
-            gap: 1rem;
+        .hero-content {
+            position: relative;
+            z-index: 2;
             width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .cell {
-            padding: 2rem;
+            height: 100%;
             display: flex;
             flex-direction: column;
-            position: relative;
+            justify-content: center;
         }
 
-        .glass-panel {
-            background: var(--md-sys-color-surface-container);
-            border-radius: var(--shape-corner-large);
-        }
-
-        /* --- Cell 1: Intro --- */
-        .cell-intro {
-            justify-content: space-between;
-            min-height: 200px;
-        }
-        .meta-row {
+        /* Massive Typography */
+        .hero-title {
             display: flex;
-            gap: 2rem;
-            font-size: 0.8rem;
+            flex-direction: column;
+            font-size: clamp(6rem, 22vw, 24rem);
+            line-height: 0.8;
+            font-weight: 700;
+            letter-spacing: -2px;
+            color: #fff;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--md-sys-color-secondary);
+            font-family: 'Oswald', sans-serif;
+            transform: scaleY(1.1); /* Stretch height slightly for Condensed look */
         }
-        .mission-statement {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            font-size: 0.95rem;
-            color: var(--md-sys-color-on-surface);
-            line-height: 1.5;
-        }
-        .scribble-icon {
+        
+        .hero-title .text-primary {
             color: var(--md-sys-color-primary);
         }
 
-        /* --- Cell 2: Heading --- */
-        .cell-heading {
-            justify-content: space-between;
-            align-items: flex-end;
-            text-align: right;
-        }
-        .top-actions {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-        }
-        .icon-btn {
-            background: rgba(255,255,255,0.1);
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            color: var(--md-sys-color-on-surface);
-            font-family: var(--font-body);
-            font-size: 0.75rem;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .icon-btn:hover {
-            background: var(--md-sys-color-primary);
-            color: var(--md-sys-color-on-primary);
-        }
-        .tagline {
-            font-size: 2rem;
-            line-height: 1.1;
-            font-weight: 400;
-        }
-
-        /* --- Cell 3: Brand --- */
-        .cell-brand {
-            background: var(--md-sys-color-primary-container); /* Accent block */
-            color: var(--md-sys-color-on-primary-container);
-            border-radius: var(--shape-corner-large);
-            justify-content: center;
-            align-items: flex-start;
-            padding: 3rem;
-        }
-        .brand-name {
-            font-size: clamp(4rem, 12vw, 9rem);
-            font-weight: 500;
-            line-height: 0.8;
-            letter-spacing: -4px;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-        .reg-mark {
-            font-size: 2rem;
-            vertical-align: super;
-            margin-left: 0.5rem;
-            font-weight: 300;
-        }
-        .shop-link {
-            font-size: 1rem;
-            text-transform: uppercase;
+        .serif-subtitle {
+            font-family: var(--font-serif);
+            font-size: clamp(1rem, 2vw, 2rem);
+            color: var(--md-sys-color-primary);
+            font-style: italic;
+            margin-top: 1rem;
             letter-spacing: 1px;
-            border-bottom: 1px solid currentColor;
-            padding-bottom: 2px;
-            opacity: 0.8;
-        }
-        .shop-link:hover {
-            opacity: 1;
         }
 
-        /* --- Cell 4: Abstract --- */
-        .cell-graphic {
-            background: var(--md-sys-color-tertiary); /* Soft Pink/Green block */
-            color: #000;
-            border-radius: var(--shape-corner-large);
-            align-items: center;
-            justify-content: center;
-        }
-        .shapes-container {
-            display: flex;
-            gap: 1rem;
-        }
-        .shape {
-            width: 40px;
-            height: 40px;
-            background: rgba(0,0,0,0.1);
-        }
-        .shape-1 { border-radius: 50%; }
-        .shape-2 { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
-        .shape-3 { border-radius: 8px; transform: rotate(45deg); }
-        
-        .graphic-id {
+        /* Industrial Footer */
+        .hero-footer {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            opacity: 0.5;
-            font-size: 0.8rem;
-        }
-
-        /* --- Cell 5: Image --- */
-        .cell-image {
-            grid-column: 1 / -1; /* Full width */
-            padding: 0;
-            border-radius: var(--shape-corner-large);
-            overflow: hidden;
-            position: relative;
-        }
-        .cell-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
-        }
-        .cell-image:hover img {
-            transform: scale(1.05);
-        }
-        .image-overlay {
-            position: absolute;
-            bottom: 0;
+            bottom: 2rem;
             left: 0;
             width: 100%;
-            padding: 2rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: white;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-        }
-        .image-overlay h3 {
-            font-size: 3rem;
-            line-height: 1;
-            margin: 0;
-        }
-        .image-overlay p {
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            opacity: 0.8;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
         }
 
-        /* Mobile */
-        @media (max-width: 900px) {
-            .bento-grid {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto;
-            }
-            .cell-image {
-                min-height: 300px;
-            }
+        .barcode {
+            width: 40px;
+            height: 30px;
+            background: repeating-linear-gradient(
+                to right,
+                #fff 0,
+                #fff 2px,
+                transparent 2px,
+                transparent 4px
+            );
+            margin-right: 0.5rem;
         }
+        .barcode-group {
+            display: flex;
+            align-items: center;
+            transform: rotate(-90deg);
+            transform-origin: bottom left;
+            position: absolute;
+            bottom: 4rem;
+            left: 2rem;
+        }
+        
+        .tech-badges {
+            display: flex;
+            gap: 2rem;
+            margin-left: 4rem; /* offset for barcode */
+        }
+        .badge {
+            border-left: 2px solid var(--md-sys-color-primary);
+            padding-left: 0.5rem;
+            line-height: 1.2;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+        .badge.pill {
+             border: 1px solid var(--md-sys-color-primary);
+             border-radius: 50%;
+             padding: 0.5rem;
+             width: 60px;
+             height: 30px; /* oval */
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             text-align: center;
+             font-size: 0.5rem;
+        }
+
+        /* News Sticker */
+        .news-sticker {
+            background: var(--md-sys-color-primary);
+            color: black;
+            padding: 1rem 2rem;
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+            max-width: 300px;
+        }
+        .news-sticker h4 {
+            line-height: 1;
+            margin-bottom: 0.25rem;
+            font-weight: 700;
+        }
+
+        /* CTA Button - Skewed */
+        .cta-skew {
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%) skewX(-10deg);
+            background: var(--md-sys-color-primary);
+            color: black;
+            padding: 0.5rem 2rem;
+            font-weight: 700;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 1px;
+            transition: transform 0.2s;
+        }
+        
+        .cta-skew span {
+            display: block;
+            transform: skewX(10deg); /* un-skew text */
+        }
+        
+        .cta-skew:hover {
+            transform: translateX(-50%) skewX(-10deg) scale(1.1);
+            background: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .hero-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2rem;
+            }
+            .tech-badges { margin: 0; }
+            .barcode-group { position: static; transform: none; margin-bottom: 1rem;}
+            .news-sticker { width: 100%; clip-path: none; margin-top: 1rem;}
+            .cta-skew { bottom: 35%; }
+        }
+
       `}</style>
         </section>
     )
